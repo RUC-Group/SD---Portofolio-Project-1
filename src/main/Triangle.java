@@ -20,17 +20,17 @@ public class Triangle extends Shape{
     }
 
     public double getArea(){
-        double side1 = Math.sqrt(Math.abs(point1.x-point2.x)^2+Math.abs(point1.y-point2.y)^2);
-        double side2 = Math.sqrt(Math.abs(point1.x-point3.x)^2+Math.abs(point1.y-point3.y)^2);
-        double side3 = Math.sqrt(Math.abs(point2.x-point3.x)^2+Math.abs(point2.y-point3.y)^2);   
+        double side1 = getSideLength(point1, point2);
+        double side2 = getSideLength(point1, point3);
+        double side3 = getSideLength(point2, point3); 
         double s = getCircumference()/2;
         return Math.sqrt(s*(s-side1)*(s-side2)*(s-side3)); // Heron´s formula
     }
 
     public double getCircumference(){
-        double side1 = Math.sqrt(Math.abs(point1.x-point2.x)^2+Math.abs(point1.y-point2.y)^2); //test if it gives a double or int.
-        double side2 = Math.sqrt(Math.abs(point1.x-point3.x)^2+Math.abs(point1.y-point3.y)^2);
-        double side3 = Math.sqrt(Math.abs(point2.x-point3.x)^2+Math.abs(point2.y-point3.y)^2);
+        double side1 = getSideLength(point1, point2);
+        double side2 = getSideLength(point1, point3);
+        double side3 = getSideLength(point2, point3); 
         return side1 + side2 + side3;
     }
 
@@ -42,5 +42,9 @@ public class Triangle extends Shape{
             return true;
         }
         else return false;
+    }
+
+    public double getSideLength(Point point1, Point point2){
+        return Math.sqrt(Math.abs(point1.x-point2.x)^2+Math.abs(point1.y-point2.y)^2);
     }
 }

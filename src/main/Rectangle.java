@@ -7,7 +7,7 @@ public class Rectangle extends Shape{
     private Point point3;
     private Point point4;
 
-    public Rectangle(Point point1, Point point4){
+    public Rectangle(Point point1, Point point4){ //user chooses top-left corner and bottom-right corner
         this.point1 = point1;
         this.point2 = new Point(point4.x,point1.y);
         this.point3 = new Point(point1.x,point4.y);
@@ -34,7 +34,7 @@ public class Rectangle extends Shape{
     }
 
     public boolean inShape(Point point){
-        if(point.x>point1.x && point.x < point2.x && point.y>point1.y && point.y<point3.y){
+        if(point.x >= point1.x && point.x <= point2.x && point.y >= point1.y && point.y <= point3.y){
             return true;
         }
         else return false;
