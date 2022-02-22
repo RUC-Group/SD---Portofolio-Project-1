@@ -16,9 +16,9 @@ public abstract class Shape{
         return Math.sqrt(Math.abs(center1.x-center2.x)^2+Math.abs(center1.y-center2.y)^2);
     }
 
-    //public abstract boolean inAnotherShape(Shape shape);
+    public abstract boolean inAnotherShape(Shape shape);
 
-    //public abstract int getOverlapCount();
+    //public abstract int getOverlapCount(Shape shape);
 
     public abstract void moveShape(int x, int y);
 

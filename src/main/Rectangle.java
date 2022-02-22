@@ -40,6 +40,12 @@ public class Rectangle extends Shape{
         else return false;
     }
 
+    public boolean inAnotherShape(Shape shape){
+        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(point4)){
+            return true;
+        }else return false;
+    }
+
     public void moveShape(int x, int y){
         point1.x += x;
         point2.x += x;
