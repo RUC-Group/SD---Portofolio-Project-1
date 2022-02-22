@@ -27,4 +27,9 @@ public class Circle extends Shape{
         }
         else return false;
     }
+
+    public void moveShape(int x, int y){
+        center.x += x;
+        center.y += y;
+    }
 }

@@ -44,6 +44,15 @@ public class Triangle extends Shape{
         else return false;
     }
 
+    public void moveShape(int x, int y){
+        point1.x += x;
+        point2.x += x;
+        point3.x += x;
+        point1.y += y;
+        point2.y += y;
+        point3.y += y;
+    }
+
     public double getSideLength(Point point1, Point point2){
         return Math.sqrt(Math.abs(point1.x-point2.x)^2+Math.abs(point1.y-point2.y)^2);
     }

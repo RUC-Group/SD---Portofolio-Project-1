@@ -39,4 +39,15 @@ public class Rectangle extends Shape{
         }
         else return false;
     }
+
+    public void moveShape(int x, int y){
+        point1.x += x;
+        point2.x += x;
+        point3.x += x;
+        point4.x += x;
+        point1.y += y;
+        point2.y += y;
+        point3.y += y;
+        point4.y += y;
+    }
 }

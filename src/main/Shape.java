@@ -20,7 +20,7 @@ public abstract class Shape{
 
     //public abstract int getOverlapCount();
 
-    //public abstract void moveShape();
+    public abstract void moveShape(int x, int y);
 
     
 }
