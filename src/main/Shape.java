@@ -1,4 +1,5 @@
 import java.awt.Point;
+import java.util.ArrayList;
 
 public abstract class Shape{
 
@@ -18,9 +19,15 @@ public abstract class Shape{
 
     public abstract boolean inAnotherShape(Shape shape);
 
-    //public abstract int getOverlapCount(Shape shape);
+    public int getOverlapCount(ArrayList<Shape> shapes){
+        int overlapCount=0;
+        for( int i=0; i<shapes.size();i++){
+            if(inAnotherShape(shapes.get(i))){
+                overlapCount++;
+            }
+        }
+        return overlapCount;
+    }
 
-    public abstract void moveShape(int x, int y);
-
-    
+    public abstract void moveShape(int x, int y);   
 }
