@@ -29,13 +29,14 @@ public class Circle extends Shape{
     }
 
     public boolean inAnotherShape(Shape shape){
+        if (shape.inShape(center)) return true;
         for(double i = 0; i<8;i++){
             Point point = new Point(center.x + (int)Math.sin((Math.PI/4)*i)*radius,center.y + (int)Math.cos((Math.PI/4)*i)*radius); //needs testing
-            if(!shape.inShape(point)){
-                return false;
+            if(shape.inShape(point)){
+                return true;
             }
         }
-        return true;
+        return false;
     }
     
     public void moveShape(int x, int y){

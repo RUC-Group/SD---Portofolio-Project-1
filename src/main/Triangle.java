@@ -15,16 +15,11 @@ public class Triangle extends Shape{
     public Point getCenter(){
         int x = (point1.x + point2.x + point3.x)/3;
         int y = (point1.y + point2.y + point3.y)/3;
-        Point center = new Point(x,y);
-        return center;
+        return new Point(x,y);
     }
 
     public double getArea(){
-        double side1 = getSideLength(point1, point2);
-        double side2 = getSideLength(point1, point3);
-        double side3 = getSideLength(point2, point3); 
-        double s = getCircumference()/2;
-        return Math.sqrt(s*(s-side1)*(s-side2)*(s-side3)); // Heron´s formula
+        return Math.abs((point1.x * (point2.y - point3.y) + point2.x * (point3.y - point1.y) + point3.x * (point1.y - point2.y))/2);
     }
 
     public double getCircumference(){
@@ -45,7 +40,7 @@ public class Triangle extends Shape{
     }
 
     public boolean inAnotherShape(Shape shape){
-        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)){
+        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(getCenter())){
             return true;
         }else return false;
     }
@@ -59,6 +54,6 @@ public class Triangle extends Shape{
     }
 
     public double getSideLength(Point point1, Point point2){
-        return Math.sqrt(Math.abs(point1.x-point2.x)^2+Math.abs(point1.y-point2.y)^2);
+        return Math.sqrt(Math.pow(Math.abs(point1.x-point2.x), 2) + Math.pow(Math.abs(point1.y-point2.y),2));
     }
 }

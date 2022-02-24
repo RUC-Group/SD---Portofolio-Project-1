@@ -12,6 +12,7 @@ public class Rectangle extends Shape{
         this.point2 = new Point(point4.x,point1.y);
         this.point3 = new Point(point1.x,point4.y);
         this.point4 = point4;
+
     }
 
     public Point getCenter(){
@@ -41,11 +42,11 @@ public class Rectangle extends Shape{
     }
 
     public boolean inAnotherShape(Shape shape){
-        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(point4)){
+        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(point4)&&shape.inShape(getCenter())){
             return true;
         }else return false;
     }
-
+ 
     public void moveShape(int x, int y){
         point1.x += x;
         point2.x += x;
