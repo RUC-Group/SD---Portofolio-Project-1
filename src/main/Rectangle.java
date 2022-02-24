@@ -18,8 +18,7 @@ public class Rectangle extends Shape{
     public Point getCenter(){
         int x = (point1.x + point4.x)/2;
         int y = (point1.y + point4.y)/2;
-        Point center = new Point(x,y);
-        return center;
+        return new Point(x,y);
     }
 
     public double getArea(){
@@ -35,16 +34,11 @@ public class Rectangle extends Shape{
     }
 
     public boolean inShape(Point point){
-        if(point.x >= point1.x && point.x <= point2.x && point.y >= point1.y && point.y <= point3.y){
-            return true;
-        }
-        else return false;
+        return point.x >= point1.x && point.x <= point2.x && point.y >= point1.y && point.y <= point3.y;
     }
 
     public boolean inAnotherShape(Shape shape){
-        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(point4)&&shape.inShape(getCenter())){
-            return true;
-        }else return false;
+        return shape.inShape(point1) && shape.inShape(point2) && shape.inShape(point3) && shape.inShape(point4) && shape.inShape(getCenter());
     }
  
     public void moveShape(int x, int y){

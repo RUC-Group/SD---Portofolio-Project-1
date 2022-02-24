@@ -14,7 +14,7 @@ public class Circle extends Shape{
     }
 
     public double getArea(){
-        return Math.PI*(radius^2);
+        return Math.PI*Math.pow(radius,2);
     }
 
     public double getCircumference(){
@@ -22,21 +22,18 @@ public class Circle extends Shape{
     }
 
     public boolean inShape(Point point){
-        if(Math.sqrt(Math.abs(point.x-center.x)^2+Math.abs(point.y-center.y)^2)<=radius){
-            return true;
-        }
-        else return false;
+        return Math.sqrt(Math.pow(point.x - center.x,2) + Math.pow(point.y - center.y, 2)) <= radius;
     }
 
     public boolean inAnotherShape(Shape shape){
-        if (shape.inShape(center)) return true;
-        for(double i = 0; i<8;i++){
-            Point point = new Point(center.x + (int)Math.sin((Math.PI/4)*i)*radius,center.y + (int)Math.cos((Math.PI/4)*i)*radius); //needs testing
-            if(shape.inShape(point)){
-                return true;
+        if (!shape.inShape(center)) return false;
+        for(double i = 0; i<=8;i++){
+            Point point = new Point(center.x + (int)Math.cos((Math.PI/4)*i)*radius,center.y + (int)Math.sin((Math.PI/4)*i)*radius);
+            if(!shape.inShape(point)){
+                return false;
             }
         }
-        return false;
+        return true;
     }
     
     public void moveShape(int x, int y){

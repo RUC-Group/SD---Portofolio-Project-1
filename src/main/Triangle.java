@@ -33,16 +33,12 @@ public class Triangle extends Shape{
         Triangle triangle1 = new Triangle(this.point1, this.point2, point);
         Triangle triangle2 = new Triangle(this.point1, this.point3, point);
         Triangle triangle3 = new Triangle(this.point2, this.point3, point);
-        if(triangle1.getArea()+triangle2.getArea()+triangle3.getArea()==getArea()){ //credits: https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
-            return true;
-        }
-        else return false;
+        //credits: https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
+        return triangle1.getArea() + triangle2.getArea() + triangle3.getArea() == getArea();
     }
 
     public boolean inAnotherShape(Shape shape){
-        if(shape.inShape(point1)&&shape.inShape(point2)&&shape.inShape(point3)&&shape.inShape(getCenter())){
-            return true;
-        }else return false;
+        return shape.inShape(point1) && shape.inShape(point2) && shape.inShape(point3) && shape.inShape(getCenter());
     }
     public void moveShape(int x, int y){
         point1.x += x;
@@ -54,6 +50,6 @@ public class Triangle extends Shape{
     }
 
     public double getSideLength(Point point1, Point point2){
-        return Math.sqrt(Math.pow(Math.abs(point1.x-point2.x), 2) + Math.pow(Math.abs(point1.y-point2.y),2));
+        return Math.sqrt(Math.pow(point1.x-point2.x, 2) + Math.pow(point1.y-point2.y,2));
     }
 }
