@@ -27,7 +27,7 @@ class MainTest {
 
     @Test
     @DisplayName("Should return the center of a Shape.")
-    void testGetCenter(){
+     void testGetCenter(){
         assertEquals(30,rect.getCenter().getX());
         assertEquals(30,rect.getCenter().getY());
         assertEquals(20,triangle.getCenter().getX());
